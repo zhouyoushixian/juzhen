@@ -1,0 +1,3 @@
+C:/code/cmake/juzhen/build/CMakeFiles/main.dir
+C:/code/cmake/juzhen/build/CMakeFiles/edit_cache.dir
+C:/code/cmake/juzhen/build/CMakeFiles/rebuild_cache.dir

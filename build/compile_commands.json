@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/code/cmake/juzhen/build",
+  "command": "D:\\mingw64\\bin\\gcc.exe  @CMakeFiles/main.dir/includes_C.rsp -g -o CMakeFiles\\main.dir\\src\\algebra.obj -c C:\\code\\cmake\\juzhen\\src\\algebra.c",
+  "file": "C:/code/cmake/juzhen/src/algebra.c",
+  "output": "CMakeFiles/main.dir/src/algebra.obj"
+},
+{
+  "directory": "C:/code/cmake/juzhen/build",
+  "command": "D:\\mingw64\\bin\\gcc.exe  @CMakeFiles/main.dir/includes_C.rsp -g -o CMakeFiles\\main.dir\\src\\main.obj -c C:\\code\\cmake\\juzhen\\src\\main.c",
+  "file": "C:/code/cmake/juzhen/src/main.c",
+  "output": "CMakeFiles/main.dir/src/main.obj"
+}
+]
