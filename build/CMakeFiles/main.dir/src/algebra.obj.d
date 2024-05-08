@@ -12,5 +12,4 @@ CMakeFiles/main.dir/src/algebra.obj: C:\code\cmake\juzhen\src\algebra.c \
  D:/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
  D:/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
  D:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
- D:/mingw64/x86_64-w64-mingw32/include/_mingw_print_pop.h \
- D:/mingw64/x86_64-w64-mingw32/include/math.h
+ D:/mingw64/x86_64-w64-mingw32/include/_mingw_print_pop.h
