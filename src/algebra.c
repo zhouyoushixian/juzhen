@@ -2,7 +2,7 @@
  * @Author: test 3402502077@qq.com
  * @Date: 2024-05-06 21:48:46
  * @LastEditors: test 3402502077@qq.com
- * @LastEditTime: 2024-05-07 23:19:53
+ * @LastEditTime: 2024-05-08 14:28:24
  * @FilePath: \juzhen\src\algebra.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -265,10 +265,62 @@ Matrix inv_matrix(Matrix a)
 int rank_matrix(Matrix a)
 {
     // ToDo
-    return 0;
+    int rank;
+    // rank取行列最小值
+    if (a.rows >= a.cols)
+    {
+        rank = a.cols;
+    }
+    else
+    {
+        rank = a.rows;
+    }
+    Matrix replace;//储存数据的矩阵
+    replace.rows = 1;
+    replace.cols = a.cols;
+    Matrix e;//出矩阵
+    e.rows=a.rows;
+    e.cols=a.cols;
+    for(int i=0;i<a.rows;i++)
+    {
+        e.data[0][i]=a.data[0][i];
+    }
+    for(int i=0;i<rank;i++){
+        if(a.data[i][i]!=0){
+            for(int j=i+1;j<a.rows;j++){
+                for(int m=0;m<a.cols;m++){
+                    e.data[j][m]=a.data[j][m]-(a.data[j][i]/a.data[i][i])*a.data[i][m];
+                }
+            }
+        }else{
+            for(int k=i+1;k<a.rows;k++){
+                if(a.data[k][i]!=0){
+                    for(int n=0;n<a.cols;n++){
+                        replace.data[0][n]=a.data[i][n];
+                        a.data[i][n]=a.data[k][n];
+                        a.data[k][n]=replace.data[0][n];
+                    }
+                    break;
+                }else{
+                    continue;
+                }
+            }
+            for(int j=i+1;j<a.rows;j++){
+                for(int m=0;m<a.cols;m++){
+                    e.data[j][m]=a.data[j][m]-(a.data[j][i]/a.data[i][i])*a.data[i][m];
+                }
+            }
+        }
+    }
+    rank = 0;
+    for(int i=0;i<e.rows;i++){
+        if(e.data[i][i]!=0){
+            rank++;
+        }
+    }
+
+    return rank;
 }
-
-
 
 double trace_matrix(Matrix a)
 {
