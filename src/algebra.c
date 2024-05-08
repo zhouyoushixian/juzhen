@@ -2,7 +2,7 @@
  * @Author: test 3402502077@qq.com
  * @Date: 2024-05-06 21:48:46
  * @LastEditors: test 3402502077@qq.com
- * @LastEditTime: 2024-05-08 15:16:57
+ * @LastEditTime: 2024-05-08 15:40:29
  * @FilePath: \juzhen\src\algebra.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -79,7 +79,7 @@ Matrix mul_matrix(Matrix a, Matrix b)
             for (int j = 0; j < b.cols; j++)
             {
                 double sum;
-                sum=0;
+                sum = 0;
                 mul_matrix.data[i][j] = 0;
                 for (int k = 0; k < a.cols; k++)
                 {
@@ -137,21 +137,22 @@ double det_matrix(Matrix a)
     if (a.rows == a.cols)
     {
         double sum;
-        if (a.rows ==1)
+        if (a.rows == 1)
         {
-            sum = a.data[0][0];
+            return a.data[0][0];
         }
         else if (a.rows == 2)
         {
             sum = a.data[0][0] * a.data[1][1] - a.data[1][0] * a.data[0][1];
+            return sum;
         }
         else
         {
-             Matrix b;
+            Matrix b;
             int p = 0, q = 0;
             b.rows = a.rows - 1;
             b.cols = a.cols - 1;
-            sum = 0.00;
+            sum = 0.0;
             int fact;
 
             for (int i = 0; i < a.rows; i++)
@@ -178,8 +179,8 @@ double det_matrix(Matrix a)
                 p = 0;
                 q = 0;
             }
+            return sum;
         }
-        return sum;
     }
     else
     {
@@ -276,46 +277,61 @@ int rank_matrix(Matrix a)
     {
         rank = a.rows;
     }
-    Matrix replace;//储存数据的矩阵
+    Matrix replace; // 储存数据的矩阵
     replace.rows = 1;
     replace.cols = a.cols;
-    Matrix e;//出矩阵
-    e.rows=a.rows;
-    e.cols=a.cols;
-    for(int i=0;i<a.rows;i++)
+    Matrix e; // 出矩阵
+    e.rows = a.rows;
+    e.cols = a.cols;
+    for (int i = 0; i < a.rows; i++)
     {
-        e.data[0][i]=a.data[0][i];
+        e.data[0][i] = a.data[0][i];
     }
-    for(int i=0;i<rank;i++){
-        if(a.data[i][i]!=0){
-            for(int j=i+1;j<a.rows;j++){
-                for(int m=0;m<a.cols;m++){
-                    e.data[j][m]=a.data[j][m]-(a.data[j][i]/a.data[i][i])*a.data[i][m];
+    for (int i = 0; i < rank; i++)
+    {
+        if (a.data[i][i] != 0)
+        {
+            for (int j = i + 1; j < a.rows; j++)
+            {
+                for (int m = 0; m < a.cols; m++)
+                {
+                    e.data[j][m] = a.data[j][m] - (a.data[j][i] / a.data[i][i]) * a.data[i][m];
                 }
             }
-        }else{
-            for(int k=i+1;k<a.rows;k++){
-                if(a.data[k][i]!=0){
-                    for(int n=0;n<a.cols;n++){
-                        replace.data[0][n]=a.data[i][n];
-                        a.data[i][n]=a.data[k][n];
-                        a.data[k][n]=replace.data[0][n];
+        }
+        else
+        {
+            for (int k = i + 1; k < a.rows; k++)
+            {
+                if (a.data[k][i] != 0)
+                {
+                    for (int n = 0; n < a.cols; n++)
+                    {
+                        replace.data[0][n] = a.data[i][n];
+                        a.data[i][n] = a.data[k][n];
+                        a.data[k][n] = replace.data[0][n];
                     }
                     break;
-                }else{
+                }
+                else
+                {
                     continue;
                 }
             }
-            for(int j=i+1;j<a.rows;j++){
-                for(int m=0;m<a.cols;m++){
-                    e.data[j][m]=a.data[j][m]-(a.data[j][i]/a.data[i][i])*a.data[i][m];
+            for (int j = i + 1; j < a.rows; j++)
+            {
+                for (int m = 0; m < a.cols; m++)
+                {
+                    e.data[j][m] = a.data[j][m] - (a.data[j][i] / a.data[i][i]) * a.data[i][m];
                 }
             }
         }
     }
     rank = 0;
-    for(int i=0;i<e.rows;i++){
-        if(e.data[i][i]!=0){
+    for (int i = 0; i < e.rows; i++)
+    {
+        if (e.data[i][i] != 0)
+        {
             rank++;
         }
     }
