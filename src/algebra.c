@@ -2,13 +2,12 @@
  * @Author: test 3402502077@qq.com
  * @Date: 2024-05-06 21:48:46
  * @LastEditors: test 3402502077@qq.com
- * @LastEditTime: 2024-05-08 21:14:50
+ * @LastEditTime: 2024-05-08 23:22:54
  * @FilePath: \juzhen\src\algebra.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #include "algebra.h"
 #include <stdio.h>
-
 
 Matrix create_matrix(int row, int col)
 {
@@ -150,31 +149,31 @@ double det_matrix(Matrix a)
         {
             Matrix b;
             int p = 0, q = 0;
-            b=create_matrix(a.rows-1,a.cols-1);
+            b = create_matrix(a.rows - 1, a.cols - 1);
             sum = 0.0;
             int fact;
 
-            for (int i = 0; i < a.rows; i++)
+            for (int j = 0; j < a.cols; j++)
             {
                 for (int k = 0; k < a.cols; k++)
                 {
-                    if (k != i)
+                    if (k != j)
                     {
-                        for (int m = 1; m < a.cols; m++)
+                        for (int m = 1; m < a.rows; m++)
                         {
-                            b.data[p][q] = a.data[k][m];
-                            q++;
+                            b.data[p][q] = a.data[m][k];
+                            p++;
                         }
-                        p++;
-                        q = 0;
+                        q++;
+                        p = 0;
                     }
                     else
                     {
                         continue;
                     }
                 }
-                fact = (i % 2 ? -1 : 1);
-                sum += fact * a.data[i][0] * det_matrix(b);
+                fact = (j % 2 ? -1 : 1);
+                sum += fact * a.data[0][j] * det_matrix(b);
                 p = 0;
                 q = 0;
             }
