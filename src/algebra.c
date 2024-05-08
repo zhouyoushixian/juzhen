@@ -2,7 +2,7 @@
  * @Author: test 3402502077@qq.com
  * @Date: 2024-05-06 21:48:46
  * @LastEditors: test 3402502077@qq.com
- * @LastEditTime: 2024-05-08 15:06:37
+ * @LastEditTime: 2024-05-08 15:16:57
  * @FilePath: \juzhen\src\algebra.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -137,9 +137,17 @@ double det_matrix(Matrix a)
     if (a.rows == a.cols)
     {
         double sum;
-        if (a.rows != 2 && a.rows != 1)
+        if (a.rows ==1)
         {
-            Matrix b;
+            sum = a.data[0][0];
+        }
+        else if (a.rows == 2)
+        {
+            sum = a.data[0][0] * a.data[1][1] - a.data[1][0] * a.data[0][1];
+        }
+        else
+        {
+             Matrix b;
             int p = 0, q = 0;
             b.rows = a.rows - 1;
             b.cols = a.cols - 1;
@@ -170,15 +178,6 @@ double det_matrix(Matrix a)
                 p = 0;
                 q = 0;
             }
-            return sum;
-        }
-        else if (a.rows == 2)
-        {
-            sum = a.data[0][0] * a.data[1][1] - a.data[1][0] * a.data[0][1];
-        }
-        else
-        {
-            sum = a.data[0][0];
         }
         return sum;
     }
