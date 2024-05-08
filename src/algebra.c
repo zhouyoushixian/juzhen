@@ -2,13 +2,13 @@
  * @Author: test 3402502077@qq.com
  * @Date: 2024-05-06 21:48:46
  * @LastEditors: test 3402502077@qq.com
- * @LastEditTime: 2024-05-08 15:40:29
+ * @LastEditTime: 2024-05-08 17:19:36
  * @FilePath: \juzhen\src\algebra.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #include "algebra.h"
 #include <stdio.h>
-#include <math.h>
+
 
 Matrix create_matrix(int row, int col)
 {
