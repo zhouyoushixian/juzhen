@@ -2,7 +2,7 @@
  * @Author: test 3402502077@qq.com
  * @Date: 2024-05-06 21:48:46
  * @LastEditors: test 3402502077@qq.com
- * @LastEditTime: 2024-05-08 14:50:48
+ * @LastEditTime: 2024-05-08 14:58:01
  * @FilePath: \juzhen\src\algebra.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -135,14 +135,14 @@ double det_matrix(Matrix a)
     // ToDo
     if (a.rows == a.cols)
     {
-        int sum;
+        double sum;
         if (a.rows != 2 && a.rows != 1)
         {
             Matrix b;
             int p = 0, q = 0;
             b.rows = a.rows - 1;
             b.cols = a.cols - 1;
-            sum = 0;
+            sum = 0.00;
             int fact;
 
             for (int i = 0; i < a.rows; i++)
