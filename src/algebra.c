@@ -2,7 +2,7 @@
  * @Author: test 3402502077@qq.com
  * @Date: 2024-05-06 21:48:46
  * @LastEditors: test 3402502077@qq.com
- * @LastEditTime: 2024-05-08 14:28:24
+ * @LastEditTime: 2024-05-08 14:50:48
  * @FilePath: \juzhen\src\algebra.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -77,7 +77,8 @@ Matrix mul_matrix(Matrix a, Matrix b)
         {
             for (int j = 0; j < b.cols; j++)
             {
-                int sum = 0;
+                double sum;
+                sum=0;
                 mul_matrix.data[i][j] = 0;
                 for (int k = 0; k < a.cols; k++)
                 {
